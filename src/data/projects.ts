@@ -46,7 +46,7 @@ export const projects: Project[] = [
     year: "2024",
     description:
       "A responsive community website designed around clarity — modern UI/UX principles, flexbox and grid layouts, and performance-first CSS. Intuitive navigation, engaging sections, one consistent visual language.",
-    image: "/images/projects/netbook.jpg",
+    image: "/images/projects/netbook.png",
     imageAlt:
       "Dark editorial website design preview for the Net-Book community website — cream typography blocks on charcoal with amber accents",
     tools: ["HTML5", "CSS3", "JavaScript", "Bootstrap"],
@@ -102,7 +102,7 @@ export const projects: Project[] = [
     year: "2024",
     description:
       "A web app that recommends outfits from user-uploaded photos. Real-time facial detection and skin-tone analysis run through OpenCV, served by a Flask backend behind a calm, guided interface.",
-    image: "/images/projects/dress-advisor.jpg",
+    image: "/images/projects/dress-advisor.png",
     imageAlt:
       "Interface preview of the AI Dress Advisor web app — dark charcoal UI with a sage-green upload panel and outfit recommendation cards",
     tools: ["HTML", "CSS", "JavaScript", "Python", "Flask", "OpenCV"],
