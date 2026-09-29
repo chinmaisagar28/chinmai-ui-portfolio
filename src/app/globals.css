@@ -1,0 +1,300 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ————————————————————————————————
+   SHADCN/UI BASE VARS (kept intact for ui primitives)
+———————————————————————————————— */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(0.09 0.005 80);
+  --foreground: oklch(0.95 0.01 85);
+  --card: oklch(0.13 0.005 80);
+  --card-foreground: oklch(0.95 0.01 85);
+  --popover: oklch(0.13 0.005 80);
+  --popover-foreground: oklch(0.95 0.01 85);
+  --primary: oklch(0.95 0.01 85);
+  --primary-foreground: oklch(0.09 0.005 80);
+  --secondary: oklch(0.18 0.005 80);
+  --secondary-foreground: oklch(0.95 0.01 85);
+  --muted: oklch(0.18 0.005 80);
+  --muted-foreground: oklch(0.65 0.01 80);
+  --accent: oklch(0.18 0.005 80);
+  --accent-foreground: oklch(0.95 0.01 85);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.55 0.18 30);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.13 0.005 80);
+  --sidebar-foreground: oklch(0.95 0.01 85);
+  --sidebar-primary: oklch(0.95 0.01 85);
+  --sidebar-primary-foreground: oklch(0.09 0.005 80);
+  --sidebar-accent: oklch(0.18 0.005 80);
+  --sidebar-accent-foreground: oklch(0.95 0.01 85);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.55 0.18 30);
+}
+
+/* ————————————————————————————————
+   PORTFOLIO DESIGN TOKENS
+   warm near-black canvas · paper type · one vermilion accent
+———————————————————————————————— */
+@theme {
+  /* palette */
+  --color-ink: #0b0a08;
+  --color-ink-2: #14120e;
+  --color-ink-3: #1d1a15;
+  --color-paper: #f2eee3;
+  --color-mute: #98917f;
+  --color-faint: #645d4f;
+  --color-vermilion: #ff4b2e;
+  --color-amber: #ffb03a;
+  --color-sage: #7dd8a5;
+
+  /* type system */
+  --font-display: var(--font-syne), ui-sans-serif, system-ui, sans-serif;
+  --font-editorial: var(--font-instrument), Georgia, serif;
+  --font-body: var(--font-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-plex), ui-monospace, "SFMono-Regular", monospace;
+
+  /* motion */
+  --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-swift: cubic-bezier(0.65, 0.05, 0.36, 1);
+
+  --animate-marquee: marquee 42s linear infinite;
+  --animate-pulse-dot: pulse-dot 2.4s cubic-bezier(0.65, 0.05, 0.36, 1) infinite;
+
+  /* layout */
+  --spacing-shell: 5rem;
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes pulse-dot {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 75, 46, 0.55);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(255, 75, 46, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 75, 46, 0);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-ink text-paper font-body antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  section[id] {
+    scroll-margin-top: 5.5rem;
+  }
+
+  ::selection {
+    background: var(--color-vermilion);
+    color: var(--color-ink);
+  }
+
+  :focus-visible {
+    outline: 1px dashed var(--color-vermilion);
+    outline-offset: 4px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-ink);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #2b2620;
+    border: 3px solid var(--color-ink);
+    border-radius: 8px;
+  }
+
+  /* custom cursor takes over on precise pointers only */
+  @media (pointer: fine) {
+    html.custom-cursor,
+    html.custom-cursor * {
+      cursor: none !important;
+    }
+  }
+}
+
+@layer components {
+  .shell {
+    @apply mx-auto w-full max-w-[1440px] px-5 md:px-10;
+  }
+
+  .mono-label {
+    @apply font-mono text-[10px] md:text-[11px] uppercase tracking-[0.25em] text-mute;
+  }
+
+  .hairline-t {
+    border-top: 1px solid rgba(242, 238, 227, 0.1);
+  }
+  .hairline-b {
+    border-bottom: 1px solid rgba(242, 238, 227, 0.1);
+  }
+
+  .text-outline {
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(242, 238, 227, 0.28);
+  }
+
+  .link-underline {
+    position: relative;
+  }
+  .link-underline::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    height: 1px;
+    width: 100%;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.55s var(--ease-expo);
+  }
+  .link-underline:hover::after,
+  .link-underline[data-active="true"]::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
+/* custom cursor ring — expands via width/height so the border stays crisp */
+.cursor-ring {
+  border: 1px solid rgba(242, 238, 227, 0.35);
+  background: transparent;
+  transition:
+    width 0.35s var(--ease-expo),
+    height 0.35s var(--ease-expo),
+    background-color 0.3s var(--ease-expo),
+    border-color 0.3s var(--ease-expo),
+    opacity 0.25s linear;
+}
+.cursor-ring[data-state="view"] {
+  width: 5.5rem;
+  height: 5.5rem;
+  background: var(--color-vermilion);
+  border-color: var(--color-vermilion);
+}
+.cursor-label {
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.cursor-ring[data-state="view"] .cursor-label {
+  opacity: 1;
+}
+
+/* film grain — sits above everything, below the cursor */
+.grain {
+  position: fixed;
+  inset: -60%;
+  z-index: 300;
+  pointer-events: none;
+  opacity: 0.055;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+  animation: grain-shift 9s steps(6) infinite;
+}
+
+@keyframes grain-shift {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  20% {
+    transform: translate(-3%, 2%);
+  }
+  40% {
+    transform: translate(2%, -3%);
+  }
+  60% {
+    transform: translate(-2%, -2%);
+  }
+  80% {
+    transform: translate(3%, 3%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .grain {
+    animation: none;
+  }
+  .animate-marquee {
+    animation: none !important;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
